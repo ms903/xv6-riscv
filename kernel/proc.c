@@ -681,3 +681,21 @@ procdump(void)
     printf("\n");
   }
 }
+
+
+
+uint64
+getprocs()
+{
+    struct proc *p;
+    int proccnt = 0;
+
+    for(p = proc; p < &proc[NPROC]; p++) {
+        if(p->state != UNUSED){
+            proccnt ++;
+        }
+    }
+
+    // printf("\n%d", proccnt);
+    return proccnt;
+}

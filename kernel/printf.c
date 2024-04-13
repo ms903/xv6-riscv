@@ -32,6 +32,9 @@ printint(int xx, int base, int sign)
   int i;
   uint x;
 
+  if(base == 16) 
+    sign = 0;
+
   if(sign && (sign = xx < 0))
     x = -xx;
   else
@@ -73,7 +76,7 @@ printf(char *fmt, ...)
 
   if (fmt == 0)
     panic("null fmt");
-
+    
   va_start(ap, fmt);
   for(i = 0; (c = fmt[i] & 0xff) != 0; i++){
     if(c != '%'){
